@@ -11,7 +11,7 @@ Es wird nichts installiert. Windows 10 oder 11 genügt.
 „Weitere Informationen“ → „Trotzdem ausführen“.
 
 ## Updates
-Die App schaut höchstens einmal am Tag hier nach einer neuen Version.
+Die App schaut beim Start und alle 15 Minuten hier nach einer neuen Version.
 Gibt es eine, erscheint links unten der Knopf **„Update …“**. Die Datei wird vor dem Austausch per SHA-256-Prüfsumme geprüft.
 Einstellungen und Verlauf bleiben erhalten.
 
