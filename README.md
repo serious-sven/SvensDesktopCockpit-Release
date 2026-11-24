@@ -16,3 +16,26 @@ Gibt es eine, erscheint links unten der Knopf **„Update …“**. Die Datei wi
 Einstellungen und Verlauf bleiben erhalten.
 
 Dieses Projekt enthält nur die fertigen Downloads, keinen Quellcode.
+
+---
+
+## Technik
+
+| | |
+|---|---|
+| Plattform | Windows 10/11, 32 und 64 Bit, nichts nachzuinstallieren |
+| Sprache / UI | C# 5, Windows Forms auf .NET Framework 4, gezeichnet mit GDI+, keine externen Bibliotheken |
+| Bauen | `csc.exe` aus Windows (`Bauen.cmd`), keine Entwicklungsumgebung nötig |
+| Daten | portabel: `config\` und `logs\` neben der `.exe`, keine Registry, kein Installer |
+| Updates | GitHub-Releases; ZIP wird mit SHA-256 geprüft, ohne Prüfsumme kein Update; abschaltbar |
+| Programme/Treiber | `winget` und Windows Update, keine eigene Update-Datenbank |
+| Löschen | Scans nur lesend; Papierkorb als Standard; Duplikat nur bei Byte-Gleichheit und vorhandener Kopie; Systemordner geschützt |
+
+**Entscheidungen**
+- **.NET Framework 4:** in Windows enthalten, eine kleine Datei, keine Laufzeit-Installation.
+- **WinForms + eigene Zeichnung:** schneller Start, wenig Speicher, alle Designs sehen gleich aus.
+- **Portabel statt Installer:** kein Eingriff ins System, Entfernen = Ordner löschen.
+- **GitHub-Releases + SHA-256:** kein eigener Server, keine Nutzerdaten beim Betreiber.
+- **Datenschutz:** keine Telemetrie, kein Konto; einzige automatische Verbindung ist die Update-Prüfung (IP sichtbar für GitHub).
+
+Die `.exe` ist nicht signiert: Windows zeigt beim ersten Start SmartScreen an.
